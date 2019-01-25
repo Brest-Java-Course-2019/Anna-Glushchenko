@@ -1,26 +1,26 @@
 package com.epam.brest.cources;
 
-public class Delivery {
+class Delivery {
 
     private double weight;
     private double distance;
 
-    public Delivery() {
+    Delivery() {
     }
 
-    public double getWeight() {
+    double getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    void setWeight(double weight) {
         this.weight = weight;
     }
 
-    public double getDistance() {
+    double getDistance() {
         return distance;
     }
 
-    public void setDistance(double distance) {
+    void setDistance(double distance) {
         this.distance = distance;
     }
 }

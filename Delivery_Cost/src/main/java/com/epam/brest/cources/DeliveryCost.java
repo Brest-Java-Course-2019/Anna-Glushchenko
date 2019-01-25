@@ -27,7 +27,8 @@ public class DeliveryCost {
         delivery.setDistance(distance);
 
         CalculatorImpl calculator = new CalculatorImpl();
-        calculator.CalculateCost(delivery.getWeight(), delivery.getDistance());
+        double cost = calculator.CalculateCost(delivery.getWeight(), delivery.getDistance());
 
+        System.out.printf("Delivery cost: %.2f", cost);
     }
 }

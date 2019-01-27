@@ -7,9 +7,9 @@ import java.util.Properties;
 public class CalculatorImpl implements Calculator {
 
     @Override
-    public double CalculateCost(double weight, double distance) {
+    public double calculateCost(double weight, double distance) {
 
-        FileInputStream fis;
+        FileInputStream fis = null;
         Properties property = new Properties();
 
         double price = 0;
@@ -34,6 +34,13 @@ public class CalculatorImpl implements Calculator {
 
         } catch (IOException e) {
             System.err.println("File not found!");
+        }
+        finally {
+            try {
+                fis.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         return weight * distance * price;

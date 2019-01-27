@@ -19,7 +19,7 @@ class CalculatorImplTest {
     @Test
     void testCalculation() {
         CalculatorImpl calculator = new CalculatorImpl();
-        double cost = calculator.CalculateCost(delivery.getWeight(), delivery.getDistance());
+        double cost = calculator.calculateCost(delivery.getWeight(), delivery.getDistance());
 
         Assertions.assertEquals(5.4696, cost);
 
@@ -28,7 +28,7 @@ class CalculatorImplTest {
     @Test
     void testCalculationException() {
         CalculatorImpl calculator = new CalculatorImpl();
-        double cost = calculator.CalculateCost(delivery.getWeight(), delivery.getDistance());
+        double cost = calculator.calculateCost(delivery.getWeight(), delivery.getDistance());
 
         Assertions.assertThrows(AssertionFailedError.class, () -> {
             Assertions.assertEquals(7.589, cost);

@@ -1,12 +1,17 @@
 package com.epam.brest.cources;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Scanner;
 
 public class DeliveryCost {
 
+    private static final Logger LOGGER = LogManager.getLogger();
+
     public static void main(String[] args) {
 
-        Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in, "UTF-8");
 
         Delivery delivery = new Delivery();
 
@@ -27,8 +32,11 @@ public class DeliveryCost {
         delivery.setDistance(distance);
 
         CalculatorImpl calculator = new CalculatorImpl();
-        double cost = calculator.CalculateCost(delivery.getWeight(), delivery.getDistance());
+        double cost = calculator.calculateCost(delivery.getWeight(), delivery.getDistance());
 
-        System.out.printf("Delivery cost: %.2f", cost);
+       // System.out.println(delivery);
+        LOGGER.info("Delivery: {}", delivery);
+        //System.out.printf("Delivery cost: %.2f", cost);
+        LOGGER.info("Cost: {}", cost);
     }
 }

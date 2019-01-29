@@ -3,15 +3,17 @@ package com.epam.brest.cources;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class DeliveryCost {
 
     private static final Logger LOGGER = LogManager.getLogger();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Scanner in = new Scanner(System.in, "UTF-8");
+        Scanner in = new Scanner(System.in, StandardCharsets.UTF_8);
 
         Delivery delivery = new Delivery();
 
@@ -32,7 +34,8 @@ public class DeliveryCost {
         delivery.setDistance(distance);
 
         CalculatorImpl calculator = new CalculatorImpl();
-        double cost = calculator.calculateCost(delivery.getWeight(), delivery.getDistance());
+        double price = Price.getPrice(delivery.getWeight());
+        double cost = calculator.calculateCost(delivery.getWeight(), delivery.getDistance(), price);
 
        // System.out.println(delivery);
         LOGGER.info("Delivery: {}", delivery);

@@ -5,9 +5,6 @@ class Delivery {
     private double weight;
     private double distance;
 
-    Delivery() {
-    }
-
     double getWeight() {
         return weight;
     }

@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class DeliveryCost {
@@ -13,7 +12,7 @@ public class DeliveryCost {
 
     public static void main(String[] args) throws IOException {
 
-        Scanner in = new Scanner(System.in, StandardCharsets.UTF_8);
+        Scanner in = new Scanner(System.in, "UTF_8");
 
         Delivery delivery = new Delivery();
 

@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java-version>1.8</java-version>
         <junit-jupiter.version>5.3.2</junit-jupiter.version>
         <maven-surefire-plugin.version>2.22.0</maven-surefire-plugin.version>
@@ -130,6 +131,11 @@
                         <!--<aggregate>true</aggregate>-->
                     <!--</configuration>-->
                 <!--</plugin>-->
+                <plugin>
+                    <groupId>org.eluder.coveralls</groupId>
+                    <artifactId>coveralls-maven-plugin</artifactId>
+                    <version>4.3.0</version>
+                </plugin>
             </plugins>
         </pluginManagement>
 
@@ -199,6 +205,10 @@
                     <!--</execution>-->
                 <!--</executions>-->
             <!--</plugin>-->
+            <plugin>
+                <groupId>org.eluder.coveralls</groupId>
+                <artifactId>coveralls-maven-plugin</artifactId>
+            </plugin>
         </plugins>
     </build>
 
@@ -223,6 +233,10 @@
                     <!--</reportSet>-->
                 <!--</reportSets>-->
             <!--</plugin>-->
+            <plugin>
+                <groupId>org.eluder.coveralls</groupId>
+                <artifactId>coveralls-maven-plugin</artifactId>
+            </plugin>
         </plugins>
     </reporting>
 

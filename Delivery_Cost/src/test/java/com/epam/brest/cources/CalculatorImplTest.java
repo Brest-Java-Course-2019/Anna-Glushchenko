@@ -38,4 +38,30 @@ class CalculatorImplTest {
             Assertions.assertEquals(7.589, cost);
         });
     }
+
+    @Test
+    void testGetPrice() throws IOException {
+
+        double price = Price.getPrice(delivery.getWeight());
+
+        Assertions.assertEquals(0.86, price);
+    }
+
+    @Test
+    void testGetFalsePrice() throws IOException {
+
+        double price = Price.getPrice(delivery.getWeight());
+
+        Assertions.assertThrows(AssertionFailedError.class, () -> {
+            Assertions.assertEquals(1.2, price);
+        });
+    }
+
+    @Test
+    void testTrueInputValue() {
+
+        Assertions.assertTrue( delivery.getWeight() > 0 && delivery.getDistance() > 0);
+    }
+
+
 }

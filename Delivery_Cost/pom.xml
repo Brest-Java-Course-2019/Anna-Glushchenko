@@ -15,6 +15,7 @@
         <maven-surefire-plugin.version>2.22.0</maven-surefire-plugin.version>
         <log4j2.version>2.11.1</log4j2.version>
         <mockito-core.version>2.23.4</mockito-core.version>
+        <org.springframework.version>4.3.10.RELEASE</org.springframework.version>
     </properties>
 
 
@@ -46,6 +47,18 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
         </dependency>
     </dependencies>
 
@@ -92,6 +105,22 @@
                 <version>${mockito-core.version}</version>
                 <scope>test</scope>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -118,19 +147,19 @@
                     <artifactId>maven-pmd-plugin</artifactId>
                     <version>3.11.0</version>
                 </plugin>
-                <!--<plugin>-->
-                    <!--<groupId>org.codehaus.mojo</groupId>-->
-                    <!--<artifactId>cobertura-maven-plugin</artifactId>-->
-                    <!--<version>2.7</version>-->
-                    <!--<configuration>-->
-                        <!--<formats>-->
-                            <!--<format>xml</format>-->
-                            <!--<format>html</format>-->
-                        <!--</formats>-->
-                        <!--<maxmem>256m</maxmem>-->
-                        <!--<aggregate>true</aggregate>-->
-                    <!--</configuration>-->
-                <!--</plugin>-->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>cobertura-maven-plugin</artifactId>
+                    <version>2.7</version>
+                    <configuration>
+                        <formats>
+                            <format>xml</format>
+                            <format>html</format>
+                        </formats>
+                        <maxmem>256m</maxmem>
+                        <aggregate>true</aggregate>
+                    </configuration>
+                </plugin>
                 <plugin>
                     <groupId>org.eluder.coveralls</groupId>
                     <artifactId>coveralls-maven-plugin</artifactId>
@@ -167,36 +196,36 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
             </plugin>
-            <!--<plugin>-->
-                <!--<groupId>org.codehaus.mojo</groupId>-->
-                <!--<artifactId>cobertura-maven-plugin</artifactId>-->
-                <!--<dependencies>-->
-                    <!--<dependency>-->
-                        <!--<groupId>org.ow2.asm</groupId>-->
-                        <!--<artifactId>asm</artifactId>-->
-                        <!--<version>5.0.3</version>-->
-                    <!--</dependency>-->
-                <!--</dependencies>-->
-                <!--<configuration>-->
-                    <!--<check>-->
-                        <!--<branchRate>85</branchRate>-->
-                        <!--<lineRate>85</lineRate>-->
-                        <!--<haltOnFailure>false</haltOnFailure>-->
-                        <!--<totalBranchRate>85</totalBranchRate>-->
-                        <!--<totalLineRate>85</totalLineRate>-->
-                        <!--<packageLineRate>85</packageLineRate>-->
-                        <!--<packageBranchRate>85</packageBranchRate>-->
-                    <!--</check>-->
-                <!--</configuration>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<goals>-->
-                            <!--<goal>clean</goal>-->
-                            <!--<goal>check</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>asm</artifactId>
+                        <version>5.0.3</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <check>
+                        <branchRate>85</branchRate>
+                        <lineRate>85</lineRate>
+                        <haltOnFailure>false</haltOnFailure>
+                        <totalBranchRate>85</totalBranchRate>
+                        <totalLineRate>85</totalLineRate>
+                        <packageLineRate>85</packageLineRate>
+                        <packageBranchRate>85</packageBranchRate>
+                    </check>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>clean</goal>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.eluder.coveralls</groupId>
                 <artifactId>coveralls-maven-plugin</artifactId>
@@ -215,17 +244,17 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
             </plugin>
-            <!--<plugin>-->
-                <!--<groupId>org.codehaus.mojo</groupId>-->
-                <!--<artifactId>cobertura-maven-plugin</artifactId>-->
-                <!--<reportSets>-->
-                    <!--<reportSet>-->
-                        <!--<reports>-->
-                            <!--<report>cobertura</report>-->
-                        <!--</reports>-->
-                    <!--</reportSet>-->
-                <!--</reportSets>-->
-            <!--</plugin>-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>cobertura</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
             <plugin>
                 <groupId>org.eluder.coveralls</groupId>
                 <artifactId>coveralls-maven-plugin</artifactId>

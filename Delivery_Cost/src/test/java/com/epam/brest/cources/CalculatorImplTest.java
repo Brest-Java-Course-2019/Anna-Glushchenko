@@ -40,11 +40,29 @@ class CalculatorImplTest {
     }
 
     @Test
-    void testGetPrice() throws IOException {
+    void testGetTrueMinPrice() throws IOException {
 
         double price = Price.getPrice(delivery.getWeight());
 
         Assertions.assertEquals(0.86, price);
+    }
+
+    @Test
+    void testGetTrueMediumPrice() throws IOException {
+
+        delivery.setWeight(5.2);
+        double price = Price.getPrice(delivery.getWeight());
+
+        Assertions.assertEquals(1.27, price);
+    }
+
+    @Test
+    void testGetTrueMaxPrice() throws IOException {
+
+        delivery.setWeight(15.8);
+        double price = Price.getPrice(delivery.getWeight());
+
+        Assertions.assertEquals(1.62, price);
     }
 
     @Test

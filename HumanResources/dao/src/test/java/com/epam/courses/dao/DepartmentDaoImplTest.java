@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.Optional;
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
@@ -27,6 +29,20 @@ class DepartmentDaoImplTest {
     }
 
     @Test
+    void findAllCheckCount() {
+
+        Stream<Department> departments = departmentDao.findAll();
+        assertNotNull(departments);
+        assertEquals(departments.count(), 4);
+    }
+
+
+    @Test
     void findById() {
+
+        Department department = departmentDao.findById(1).get();
+        assertNotNull(department);
+        assertEquals(department.getDepartmentId().intValue(), 1);
+        assertEquals(department.getDepartmentName(), "DEV");
     }
 }

@@ -6,6 +6,8 @@ public class Department {
 
     private String departmentName;
 
+    private String departmentDescription;
+
     public Integer getDepartmentId() {
         return departmentId;
     }
@@ -20,6 +22,14 @@ public class Department {
 
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
+    }
+
+    public String getDepartmentDescription() {
+        return departmentDescription;
+    }
+
+    public void setDepartmentDescription(String departmentDescription) {
+        this.departmentDescription = departmentDescription;
     }
 
     @Override

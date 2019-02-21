@@ -13,5 +13,5 @@ CREATE TABLE employee (
   salary                   INT             NOT NULL,
   departmentId             INT,
   PRIMARY KEY (employeeId),
-  FOREIGN KEY (departmentId) REFERENCES department(departmentId)
+  FOREIGN KEY (departmentId) REFERENCES department(departmentId) ON DELETE CASCADE
 );

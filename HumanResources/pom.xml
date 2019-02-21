@@ -14,6 +14,7 @@
         <module>dao</module>
         <module>test</module>
         <module>model</module>
+        <module>service</module>
     </modules>
 
     <distributionManagement>
@@ -34,6 +35,7 @@
         <spring-jdbc.version>5.0.5.RELEASE</spring-jdbc.version>
         <spring-test.version>5.0.5.RELEASE</spring-test.version>
         <h2.version>1.4.197</h2.version>
+        <mockito-core.version>2.24.5</mockito-core.version>
     </properties>
 
     <dependencyManagement>
@@ -52,6 +54,11 @@
             <dependency>
                 <groupId>com.epam.courses</groupId>
                 <artifactId>test</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.epam.courses</groupId>
+                <artifactId>service</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <!--spring framework-->
@@ -104,6 +111,12 @@
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-engine</artifactId>
                 <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito-core.version}</version>
                 <scope>test</scope>
             </dependency>
             <!--logging-->

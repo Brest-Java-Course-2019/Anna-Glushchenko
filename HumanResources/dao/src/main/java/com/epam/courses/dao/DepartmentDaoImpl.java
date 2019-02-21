@@ -3,6 +3,7 @@ package com.epam.courses.dao;
 import com.epam.courses.model.Department;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
@@ -25,12 +26,18 @@ public class DepartmentDaoImpl implements DepartmentDao {
     private static final String DEPARTMENT_NAME = "departmentName";
     private static final String DEPARTMENT_DESCRIPTION = "departmentDescription";
 
-    private static final String SELECT_ALL = "select departmentId, departmentName, departmentDescription from department";
-    private static final String SELECT_BY_ID = "select departmentId, departmentName, departmentDescription from department where departmentId=:departmentId";
-    private static final String CHECK_COUNT_NAME = "select count(departmentId) from department where lower(departmentName) = lower(:departmentName)";
-    private static final String INSERT = "insert into department (departmentName, departmentDescription) values (:departmentName, :departmentDescription)";
-    private static final String UPDATE = "update department set departmentName = :departmentName, departmentDescription = :departmentDescription where departmentId = :departmentId";
-    private static final String DELETE = "delete from department where departmentId = :departmentId";
+    @Value("${department.SELECT_ALL}")
+    private String SELECT_ALL;
+    @Value("${department.SELECT_BY_ID}")
+    private String SELECT_BY_ID;
+    @Value("${department.CHECK_COUNT_NAME}")
+    private String CHECK_COUNT_NAME;
+    @Value("${department.INSERT}")
+    private String INSERT;
+    @Value("${department.UPDATE}")
+    private String UPDATE;
+    @Value("${department.DELETE}")
+    private String DELETE;
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
@@ -62,7 +69,7 @@ public class DepartmentDaoImpl implements DepartmentDao {
         return Optional.of(department)
                 .filter(this::isNameUnique)
                 .map(this::insertDepartment)
-                .orElseThrow(() -> new IllegalArgumentException("Department with the same name already exsists in DB."));
+                .orElseThrow(() -> new IllegalArgumentException("Department with the same name already exists in DB."));
     }
 
     @Override
@@ -70,7 +77,7 @@ public class DepartmentDaoImpl implements DepartmentDao {
         LOGGER.debug("add({})", department);
         return Optional.of(department)
                 .map(this::insertDepartment)
-                .orElseThrow(() -> new IllegalArgumentException("Department with the same name already exsists in DB."));
+                .orElseThrow(() -> new IllegalArgumentException("Department with the same name already exists in DB."));
     }
 
     private boolean isNameUnique(Department department) {

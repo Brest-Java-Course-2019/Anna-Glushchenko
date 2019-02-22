@@ -13,8 +13,6 @@ public interface DepartmentDao {
 
     Optional<Department> add(Department department);
 
-    Optional<Department> addDepartment(Department department);
-
     void update(Department department);
 
     void delete(int departmentId);

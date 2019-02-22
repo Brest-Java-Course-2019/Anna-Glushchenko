@@ -28,7 +28,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Transactional
     public void add(Department... departments) {
         for (Department department : departments) {
-            dao.addDepartment(department);
+            dao.add(department);
         }
     }
 }

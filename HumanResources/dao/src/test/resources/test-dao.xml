@@ -14,4 +14,7 @@
         <constructor-arg ref="namedParameterJdbcTemplate"/>
     </bean>
 
+    <bean id="employeeDao" class="com.epam.courses.dao.EmployeeDaoImpl">
+        <constructor-arg ref="namedParameterJdbcTemplate"/>
+    </bean>
 </beans>
